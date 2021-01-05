@@ -29,10 +29,11 @@ class ProductDetailView(DetailView):
     queryset = Product.objects.all()
     template_name = "products/detail.html"
     
-    def get_context_data(self):
-        context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
-        print(context)
-        return context
+
+def get_context_data(self): 
+    context = super(ProductDetailView, self).get_context_data(*args, **kwargs) 
+    print(context) 
+    return context    
 
 #Function Based View
 def product_detail_view(request, pk = None, *args, **kwargs):
@@ -42,3 +43,5 @@ def product_detail_view(request, pk = None, *args, **kwargs):
         'object': instance
     }
     return render(request, "products/detail.html", context)
+
+    
